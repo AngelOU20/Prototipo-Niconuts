@@ -2,4 +2,5 @@
 Trabajo de Programación Lab
 
 ## trabajos
-actualizar y concluir
+actualizar solo si esta bien
+  
