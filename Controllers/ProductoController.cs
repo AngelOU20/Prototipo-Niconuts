@@ -1,7 +1,12 @@
+using Microsoft.AspNetCore.Mvc;
+
 namespace Prototipo_Niconuts.Controllers
 {
-    public class ProductoController
+    public class ProductoController : Controller
     {
-        public int id{get;set;}
+       public IActionResult Producto()
+        {
+            return View();
+        }
     }
 }
