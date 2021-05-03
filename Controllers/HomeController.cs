@@ -28,6 +28,11 @@ namespace Prototipo_Niconuts.Controllers
             return View();
         }
 
+        public IActionResult Contactenos()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
