@@ -23,7 +23,12 @@ namespace Prototipo_Niconuts.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Nosotros()
+        {
+            return View();
+        }
+
+        public IActionResult Contactenos()
         {
             return View();
         }
