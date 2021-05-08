@@ -1,8 +1,8 @@
 # Prototipo-Niconuts
-Trabajo de Programación Lab
+Trabajo de Programación Lab (Proyecto niconuts)
 
 ## trabajos
-actualizar solo si esta bien
+revizar sus actualizaciones y poner comentarios acorde
 
 Niconuts
 
