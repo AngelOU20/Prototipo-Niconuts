@@ -32,6 +32,10 @@ namespace Prototipo_Niconuts.Controllers
         {
             return View();
         }
+
+        public IActionResult FormularioContacto(){
+            return View();
+        }
         
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
