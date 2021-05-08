@@ -1,10 +1,34 @@
 @{
     ViewData["Title"] = "Formulario de Contacto";
 }
-<div class="text-center">
+
+@model Contacto
+
+<div>
     <div class="container">
-        <h2>Formulario</h2>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur ducimus placeat expedita quod quo temporibus quas 
-            reprehenderit vero Recusandae illum consequatur repellendusRecusandae illum consequatur repellendusRecusandae illum consequatur repellendusRecusandae illum consequatur repellendussint iusto. Recusandae illum consequatur repellendus. Dolor ab doloremque distinctio obcaecati nisi!</p>
+        <h2>Formulario de Consultas</h2>
+        
+        
+<form asp-controller="Contacto" asp-action="Create">
+     <label asp-for="Nombre" class="control-label"></label>
+     <input asp-for="Nombre" class="form-control" />
+
+     <label asp-for="Apellido" class="control-label"></label>
+     <input asp-for="Apellido" class="form-control" />
+
+     <label asp-for="Email" class="control-label"></label>
+     <input asp-for="Email" class="form-control" placeholder="name@example.com"/> 
+
+     <label asp-for="Telefono" class="control-label"></label>
+     <input asp-for="Telefono" class="form-control" />
+
+    <label asp-for="Mensaje" class="control-label"></label>
+    <textarea asp-for="Mensaje" class="form-control" ></textarea>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Registrar</button> 
+    </div>              
+</form>
+
     </div>
 </div>
