@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Prototipo_Niconuts.Data;
 using Prototipo_Niconuts.Models;
 
 namespace Prototipo_Niconuts.Controllers
@@ -13,9 +14,12 @@ namespace Prototipo_Niconuts.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ApplicationDbContext _context;
+
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
@@ -34,7 +38,17 @@ namespace Prototipo_Niconuts.Controllers
         }
 
         public IActionResult FormularioContacto(){
+            
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult FormularioContacto(Contacto a){
+            if(ModelState.IsValid){
+                _context.Add(a);
+                _context.SaveChanges();
+            }
+            return RedirectToAction("Index");
         }
         
 
