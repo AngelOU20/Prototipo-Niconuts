@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Prototipo_Niconuts.Models;
 
 namespace Prototipo_Niconuts.Data
 {
@@ -12,5 +13,7 @@ namespace Prototipo_Niconuts.Data
             : base(options)
         {
         }
+
+        public DbSet<Contacto> DataContacto {get;set;}
     }
 }
