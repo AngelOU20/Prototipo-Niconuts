@@ -19,7 +19,7 @@ namespace Prototipo_Niconuts.Controllers
 
         public IActionResult Administrador()    //https://localhost:5001/Administrador/Administrador
         {
-            var listcontactos = _context.DataContacto.ToList();
+            var listcontactos = _context.DataContacto.OrderBy(x => x.id).ToList();
             ViewData["Message"] = "";
             return View(listcontactos);
         }
