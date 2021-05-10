@@ -11,11 +11,26 @@ namespace Prototipo_Niconuts.Models
         public int id{get;set;}
 
         [Required(ErrorMessage = "Por favor ingrese Nombre")]
-        [Display(Name="nombre")]
+        [Display(Name="Nombre")]
+        [Column("nombre")]
         public string Nombre{get;set;}
+
+        [Required(ErrorMessage = "Por favor ingrese Apellido")]
+        [Display(Name="Apellido")]
+        [Column("apellido")]
         public string Apellido{get;set;}
+
+        [Display(Name="Correo")]
+        [Column("email")]
         public string Email{get;set;}
+
+        [DataType(DataType.Password)]
+        [Column("contraseña")]
         public string Contraseña{get;set;}
+
+        [DataType(DataType.PhoneNumber)]
+        [Display(Name="Telefono")]
+        [Column("telefono")]
         public string Telefono{get;set;}
 
     }
