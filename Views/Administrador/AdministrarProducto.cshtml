@@ -1,0 +1,48 @@
+  
+@model IEnumerable<Prototipo_Niconuts.Models.Producto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Administrar Productor</h1>
+
+<p>
+    <a asp-action="CrearProducto">Crear Nuevo Producto</a>
+</p>
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Precio)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio)
+            </td>
+            <td>
+                <a asp-action="EditarProducto" asp-route-id="@item.id">Editar</a> |
+                <a asp-action="#" asp-route-id="@item.id">Details</a> |
+                <a asp-action="#" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
