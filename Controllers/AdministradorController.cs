@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -43,62 +44,37 @@ namespace Prototipo_Niconuts.Controllers
                 _context.Add(a);
                 _context.SaveChanges();
             }
-            return RedirectToAction("Administrador");
+            return RedirectToAction("AdministrarProducto");
         }
 
-    
-
-        // GET: Producto/Edit/5
-        public async Task<IActionResult> EditarProducto(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var producto = await _context.DataProducto.FindAsync(id);
-            if (producto == null)
-            {
-                return NotFound();
-            }
-            return View();
-        }
-
-        
-         // POST: Producto/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,ImagenName,Price")] Producto producto)
-        {
-            if (id != producto.id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(producto);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ProductoExists(producto.id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Administrador));
-            }
+        public IActionResult EditarProducto(int id){
+            var producto = _context.DataProducto.Find(id);
             return View(producto);
         }
+
+
+        [HttpPost]
+        public IActionResult EditarProducto(Producto r){
+            if(ModelState.IsValid){
+                var producto = _context.DataProducto.Find(r.id);
+                producto.Nombre = r.Nombre;
+                producto.Precio = r.Precio;
+                producto.Descripcion = r.Descripcion;
+                producto.Imagen = r.Imagen;
+                _context.SaveChanges();
+                return RedirectToAction("AdministrarProducto");
+            }
+            return View(r);
+        }
+   
+        public IActionResult Delete(int id) 
+        {
+            var Producto= _context.DataProducto.Find(id);
+            _context.Remove(Producto);
+            _context.SaveChanges();
+            return RedirectToAction("AdministrarProducto");
+        }
+
 
         private bool ProductoExists(int id)
         {
