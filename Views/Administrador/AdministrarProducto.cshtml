@@ -14,6 +14,9 @@
     <thead class="thead-dark">
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.id)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Nombre)
             </th>
             <th>
@@ -22,12 +25,18 @@
             <th>
                 @Html.DisplayNameFor(model => model.Precio)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Imagen)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Nombre)
             </td>
@@ -38,9 +47,11 @@
                 @Html.DisplayFor(modelItem => item.Precio)
             </td>
             <td>
-                <a asp-action="EditarProducto" asp-route-id="@item.id">Editar</a> |
-                <a asp-action="#" asp-route-id="@item.id">Details</a> |
-                <a asp-action="#" asp-route-id="@item.id">Delete</a>
+                <img src="@Html.DisplayFor(modelItem => item.Imagen)" height="60" width="60" alt="">
+            </td>
+            <td>
+                <a asp-action="EditarProducto" asp-route-id="@item.id"><span class="oi oi-pencil"></span></a>   |  
+                <a asp-action="Delete" asp-route-id="@item.id" class="text-danger ml-1" onclick="return confirm('¿Seguro que quieres eliminar el producto?')"><i class="oi oi-trash"></i></a>
             </td>
         </tr>
 }
