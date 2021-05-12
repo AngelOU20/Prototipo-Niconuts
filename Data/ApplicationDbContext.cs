@@ -15,5 +15,9 @@ namespace Prototipo_Niconuts.Data
         }
 
         public DbSet<Contacto> DataContacto {get;set;}
+        public DbSet<Cliente> DataCliente {get;set;}
+        public DbSet<PrePedido> DataPrePedido {get;set;}
+        public DbSet<Producto> DataProducto {get;set;}
+       
     }
 }
