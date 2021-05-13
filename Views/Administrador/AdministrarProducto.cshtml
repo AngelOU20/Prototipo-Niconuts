@@ -5,7 +5,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Administrar Productor</h1>
+<h1>Administrar Producto</h1>
 
 <p>
     <a asp-action="CrearProducto">Crear Nuevo Producto</a>
@@ -28,7 +28,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Imagen)
             </th>
-            <th></th>
+            <th>
+                Operación
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -49,8 +51,9 @@
             <td>
                 <img src="@Html.DisplayFor(modelItem => item.Imagen)" height="60" width="60" alt="">
             </td>
-            <td>
-                <a asp-action="EditarProducto" asp-route-id="@item.id"><span class="oi oi-pencil"></span></a>   |  
+            <td class="">   
+                <a asp-action="EditarProducto" asp-route-id="@item.id"><span class="oi oi-pencil"></span></a>  |
+                <a asp-action="DetalleProducto" asp-route-id="@item.id"><i class="fas fa-file"></i></a>   |   
                 <a asp-action="Delete" asp-route-id="@item.id" class="text-danger ml-1" onclick="return confirm('¿Seguro que quieres eliminar el producto?')"><i class="oi oi-trash"></i></a>
             </td>
         </tr>
