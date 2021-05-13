@@ -66,6 +66,11 @@ namespace Prototipo_Niconuts.Controllers
             }
             return View(r);
         }
+
+        public IActionResult DetalleProducto(int id){
+            var producto = _context.DataProducto.Find(id);
+            return View(producto);
+        }
    
         public IActionResult Delete(int id) 
         {
