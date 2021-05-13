@@ -1,8 +1,12 @@
+
+
 body{
-    margin: 0;
-    padding: 0;
-    background: url(../img/wallpaper/formcontact.jpg);   
-    background-size: cover;
-    background-position: center;
-    font-family: sans-serif;
+    background: #FFEFBA; 
+    background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA); 
+    background: linear-gradient(to right, #FFFFFF, #FFEFBA); 
+
+}
+
+footer{
+    background-color: burlywood;
 }
