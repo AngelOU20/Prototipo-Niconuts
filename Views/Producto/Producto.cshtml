@@ -5,27 +5,28 @@
 @model List<Producto>
 
 
-<div class="text-center">
-    <h2>Lista de Productos</h2>
-
+<div class="">
+    <br>
+    <h2>Productos</h2>
+    <br>
     <div>
         <nav class="navbar navbar-light bg-light">
             <div class="container-fluid">
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                    <button class="btn btn-outline-dark" type="submit">Buscar</button>
+                <form class="d-flex" method="POST">
+                    <div class="dropdown">
+	                <form asp-controller="Producto" asp-action="Index">
+	                <select class="custom-select btn btn-outline-light" type="button" name="Ordenar"
+	                    onchange="this.form.submit()">
+	                    <option><i class="fas fa-leaf"></i>Ordenar por:</option>
+	                    <option asp-action="MayorPrecio">Ordenar por precio: alto a bajo</option>
+                        <option name="MenorPrecio">Ordenar por precio: bajo a alto</option>
+	                </select>
+	            </form>
+            </div>
                 </form>
-                <form class="d-flex">
-                    <div class="dropdown show">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                           Ordenar por
-                        </a>
-
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" asp-action="MayorPrecio" >Mayor precio</a>
-                            <a class="dropdown-item" href="#" data-value="OrderByPriceASC">Menor precio</a>
-                        </div>
-                    </div>
+                 <form class="d-flex" method="POST">
+                    <input class="form-control me-2" type="text" name="filtro" placeholder="Buscar" required>
+                    <button class="btn btn-outline-info" >Buscar</button>
                 </form>
             </div>
         </nav> 
@@ -33,13 +34,13 @@
     <br>
 </div>
 
-
+<div class="text-center">
 <div class="row catalogue-container" data-aos="fade-up">
 	@foreach (var item in Model)
 	{
-		<div class="col-lg-4 catalogue-item filter-app">
+		<div class="col-lg-3 catalogue-item filter-app">
             <div class="card h-100">
-                    <img src="@Html.DisplayFor(modelItem => item.Imagen)" class="d-block w-100">
+                    <a asp-action="DescripcionProducto" asp-route-id="@item.id"><img src="@Html.DisplayFor(modelItem => item.Imagen)" class="d-block w-100"></a>
                     <div class="card-body">
                         <h5 class="card-title">
                             @Html.DisplayFor(modelItem => item.Nombre)
@@ -49,10 +50,11 @@
                     <div class="card-footer" >
                         <form asp-action="" method="POST">
                             <input type="hidden" name="id" value="@item.id">
-                            <button class="btn btn-sm btn-outline-secondary">Agregar</button>
+                            <button class="btn btn-outline-success">Agregar</button>
                         </form>
                     </div>
             </div>
         </div>
 	}  
+</div>
 </div>
