@@ -2,9 +2,11 @@ using System;
 using System.Dynamic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Prototipo_Niconuts.Data;
+using Prototipo_Niconuts.Models;
 
 namespace Prototipo_Niconuts.Controllers
 {
@@ -47,8 +49,11 @@ namespace Prototipo_Niconuts.Controllers
             return View(producto);
         }
 
-        public IActionResult Carrito(){
-            return View();
+        [Authorize]
+        public IActionResult Carrito()
+        {
+            var Ordenes=_context.DataPrePedido.Where(x => x.Usuario != null).ToList();
+            return View(Ordenes);
         }
 
     }

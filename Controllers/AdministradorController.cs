@@ -80,13 +80,5 @@ namespace Prototipo_Niconuts.Controllers
             return RedirectToAction("AdministrarProducto");
         }
 
-
-        private bool ProductoExists(int id)
-        {
-            return _context.DataProducto.Any(e => e.id == id);
-        }
-
-
-
     }
 }
