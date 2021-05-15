@@ -1,0 +1,44 @@
+@{
+    ViewData["Title"] = "Descripcion del Producto";
+}
+@model Producto
+
+
+<h2>Producto</h2>
+
+<hr>
+<div class="container">
+    <div class="row">
+        
+        <div class="col-md-6">
+            <div class="card-body">
+                <img src="@Html.DisplayFor(model => model.Imagen)" class="d-block w-100" alt="">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card-body">
+                <h5 class="card-title"> <strong>@Html.DisplayFor(model => model.Nombre)</strong></h5>
+                <p class="card-text">@Html.DisplayFor(model => model.Descripcion)</p>
+                <p class="card-text"><strong> S/. @Html.DisplayFor(model => model.Precio) </strong> </p>
+                <div>
+                    <div class="row">
+                    <div class="col-md-6">
+                        <input type="number"  class="input-text qty text" step="1" min="1" max="" value="1" title="Cantidad" size="4" placeholder="" inputmode="numeric">
+                    </div>
+                    <br>
+                    <div class="col-md-6">
+                        <form asp-action="" method="POST">
+                            <input type="hidden" name="id" >
+                            <button class="btn btn-outline-success">Agregar al carrito</button>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+</div>
+
+<br>
+<hr>
