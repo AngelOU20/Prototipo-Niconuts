@@ -41,7 +41,7 @@ namespace Prototipo_Niconuts.Controllers
             
             return View();
         }
-
+        
         [HttpPost]
         public IActionResult FormularioContacto(Contacto a){
             if(ModelState.IsValid){
@@ -51,8 +51,12 @@ namespace Prototipo_Niconuts.Controllers
             return RedirectToAction("Index");
         }
 
-        
+        public IActionResult FormularioReclamaciones(){
+            
+            return View();
+        }
 
+        
 
         
 
