@@ -5,39 +5,15 @@
 @model Contacto
 
 <div>
-    <div class="container">
-        <h2>Formulario de Consultas</h2>
-        
-        
-<form asp-controller="Home" asp-action="FormularioContacto">
-     <label asp-for="Nombre" class="control-label"></label>
-     <input asp-for="Nombre" class="form-control" />
-
-     <label asp-for="Apellido" class="control-label"></label>
-     <input asp-for="Apellido" class="form-control" />
-
-     <label asp-for="Email" class="control-label"></label>
-     <input asp-for="Email" class="form-control" placeholder="name@example.com"/> 
-
-     <label asp-for="Telefono" class="control-label"></label>
-     <input asp-for="Telefono" class="form-control" />
-
-    <label asp-for="Mensaje" class="control-label"></label>
-    <textarea asp-for="Mensaje" class="form-control" ></textarea>
-
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary">Registrar</button> 
-    </div>              
-</form>
-
-    </div>
+    <center>
+        <h1>
+            Formulario de Consultas
+        </h1>
+    </center>
 </div>
+<br>
 
-
-
-
-
-
+<div class="container">
 
 <form asp-controller="Home" asp-action="FormularioContacto">
     <div class="row">
@@ -90,7 +66,7 @@
     </div>
 </form>
 
-        
+</div>     
 
 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 <link rel="stylesheet" href="~/css/formcontacto.css" />
