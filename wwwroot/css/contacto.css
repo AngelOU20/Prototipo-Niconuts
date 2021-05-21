@@ -1,0 +1,42 @@
+
+
+body{
+    background: #5c96cc; 
+    background: -webkit-linear-gradient(to right, #FFFFFF, #4ca6c2); 
+    background: linear-gradient(to right, #FFFFFF, #bae9ff); 
+
+}
+
+footer{
+    background-color: rgb(104, 199, 183);
+}
+
+
+.i1 {
+	padding: 10px;
+	border: 2px solid #2C79D5; 
+}
+
+.i2 {
+	padding: 10px;
+	border: 2px solid #FF8000; 
+}
+.i3 {
+	padding: 10px;
+	border: 2px solid #088A85; 
+}
+.i4 {
+	padding: 10px;
+	border: 2px solid #26A4D0; 
+}
+.i5 {
+	padding: 10px;
+	border: 2px solid #D02642; 
+}
+
+
+.f1{
+    background: #E4F2F7; 
+    
+
+}
