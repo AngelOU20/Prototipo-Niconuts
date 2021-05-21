@@ -4,29 +4,37 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Prototipo_Niconuts.Models
 {
-    [Table("t_pre_pedido")]     //Carrito
     public class PrePedido
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("id")]
-        public int id{get;set;}
+        [Column("ID")]
+        public int ID { get; set; }
+
+        [Column("Fecha")]
+        public DateTime Fecha { get; set; }
+
+        [Display(Name="Total")]
+
+        [Column("Total")]
+        public decimal Total { get; set; }
+
+
+        [Display(Name="Producto")]
+        [Column("Producto")]
+        public string ProductoID { get; set; }
 
         [Display(Name="Correo")]
-        [Column("email")]
-        public string Email{get;set;}
-
-        [Column("productoid")]
-        public int ProductoID{get;set;}
-
+        [Column("Correo")]
+        public string Usuario { get; set; }
 
         [Display(Name="Cantidad")]
-        [Column("cantidad")]
-        public int Cantidad{get;set;}
+        [Column("Cantidad")]
+        public int Cantidad { get; set; }
 
-        [Display(Name="Precio")]
-        [Column("precio")]
-        public Decimal precio{get;set;}
+        [Display(Name="Precio Unitario")]
 
-         
+        [Column("PrecioUnit")]
+        public decimal Precio { get; set; }
+
     }
 }
