@@ -41,47 +41,56 @@
 
 <form asp-controller="Home" asp-action="FormularioContacto">
     <div class="row">
-        <div class="col-2"></div>
-        <div class="col-4">
-            <label asp-for="Nombre" class="control-label"></label>
-            <input asp-for="Nombre" class="form-control" />
+        <div class="col-1"></div>
+        <div class="col-10">
+            <div class="f2">
+                <br>
+                <div class="row">
+                    
+                        <div class="col-2"></div>
+                        <div class="col-4">
+                            <label asp-for="Nombre" class="control-label"></label>
+                            <input asp-for="Nombre" class="form-control" />
+                        </div>
+                        <div class="col-4">
+                            <label asp-for="Apellido" class="control-label"></label>
+                            <input asp-for="Apellido" class="form-control" />
+                        </div>
+                        <div class="col-2"></div>
+                        <div class="col-2"></div>
+                        <div class="col-4">
+                            <label asp-for="Email" class="control-label"></label>
+                            <input asp-for="Email" class="form-control" placeholder="name@example.com"/> 
+                        </div>
+                        <div class="col-4">
+                            <label asp-for="Telefono" class="control-label"></label>
+                            <input asp-for="Telefono" class="form-control" />          
+                        </div>
+                        <div class="col-2"></div>
+                        <div class="col-2"></div>
+                        <div class="col-8">
+                            <label asp-for="Mensaje" class="control-label"></label>
+                            <textarea asp-for="Mensaje" class="form-control" ></textarea>
+                            <small class="text-muted">Sea detallado y explicito con su consulta para un menor tiempo de respuesta.</small> 
+                        </div>
+                        <div class="col-2"></div>
+                        <br><br><br><br><br><br>
+                        <div class="col-5"></div>
+                        <div class="col-2">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Registrar</button> 
+                            </div> 
+                        </div>
+                        <div class="col-5"></div>
+                
+                </div>
+            </div>
         </div>
-        <div class="col-4">
-            <label asp-for="Apellido" class="control-label"></label>
-            <input asp-for="Apellido" class="form-control" />
-        </div>
-        <div class="col-2"></div>
-        <div class="col-2"></div>
-        <div class="col-4">
-            <label asp-for="Email" class="control-label"></label>
-            <input asp-for="Email" class="form-control" placeholder="name@example.com"/> 
-        </div>
-        <div class="col-4">
-            <label asp-for="Telefono" class="control-label"></label>
-            <input asp-for="Telefono" class="form-control" />          
-        </div>
-        <div class="col-2"></div>
-        <div class="col-2"></div>
-        <div class="col-8">
-            <label asp-for="Mensaje" class="control-label"></label>
-            <textarea asp-for="Mensaje" class="form-control" ></textarea>
-            <small class="text-muted">Sea detallado y explicito con su consulta para un menor tiempo de respuesta.</small> 
-        </div>
-        <div class="col-2"></div>
-        <br><br><br><br><br><br>
-        <div class="col-5"></div>
-        <div class="col-2">
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">Registrar</button> 
-            </div> 
-        </div>
-        <div class="col-5"></div>
-
+        <div class="col-1"></div>
     </div>
 </form>
 
-
-
+        
 
 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 <link rel="stylesheet" href="~/css/formcontacto.css" />
