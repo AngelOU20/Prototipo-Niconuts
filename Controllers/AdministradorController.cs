@@ -67,6 +67,8 @@ namespace Prototipo_Niconuts.Controllers
             return View(r);
         }
 
+        
+
         public IActionResult DetalleProducto(int id){
             var producto = _context.DataProducto.Find(id);
             return View(producto);
@@ -78,6 +80,15 @@ namespace Prototipo_Niconuts.Controllers
             _context.Remove(Producto);
             _context.SaveChanges();
             return RedirectToAction("AdministrarProducto");
+        }
+
+        
+        public IActionResult BorrarContacto(int id){
+            var contacto= _context.DataContacto.Find(id);
+            _context.Remove(contacto);
+            _context.SaveChanges();
+
+            return RedirectToAction("Administrador");
         }
 
     }

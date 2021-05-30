@@ -24,6 +24,9 @@
                 <th scope="col">
                     @Html.DisplayNameFor(model => model.Mensaje)
                 </th>
+                <th>
+                   
+                </th>
         </tr>
     </thead>
     <tbody>
@@ -44,6 +47,9 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Mensaje)
+                </td>
+                <td class="center">
+                    <a asp-action="BorrarContacto" asp-route-id="@item.id" class="text-danger ml-1" onclick="return confirm('¿Seguro que quieres eliminar el producto?')"><i class="oi oi-trash"></i></a>
                 </td>
             </tr>
         }
