@@ -47,9 +47,12 @@ namespace Prototipo_Niconuts.Controllers
             if(ModelState.IsValid){
                 _context.Add(a);
                 _context.SaveChanges();
+                return RedirectToAction("Index");
             }
-            return RedirectToAction("Index");
+            return View(a);
         }
+
+        
 
         public IActionResult FormularioReclamaciones(){
             
