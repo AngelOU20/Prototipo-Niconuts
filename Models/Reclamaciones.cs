@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Prototipo_Niconuts.Models
 {
-    [Table("t_contacto")]
-    public class Contacto
+    [Table("t_reclamaciones")]
+    public class Reclamaciones
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("id")]

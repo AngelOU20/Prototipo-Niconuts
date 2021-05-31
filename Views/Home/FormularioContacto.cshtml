@@ -11,19 +11,23 @@
         
 <form asp-controller="Home" asp-action="FormularioContacto">
      <label asp-for="Nombre" class="control-label"></label>
-     <input asp-for="Nombre" class="form-control" />
+     <input asp-for="Nombre" class="form-control" required />
 
      <label asp-for="Apellido" class="control-label"></label>
-     <input asp-for="Apellido" class="form-control" />
+     <input asp-for="Apellido" class="form-control" required />
 
      <label asp-for="Email" class="control-label"></label>
      <input asp-for="Email" class="form-control" placeholder="name@example.com"/> 
 
      <label asp-for="Telefono" class="control-label"></label>
-     <input asp-for="Telefono" class="form-control" />
+     <input asp-for="Telefono" class="form-control" required/>
 
     <label asp-for="Mensaje" class="control-label"></label>
-    <textarea asp-for="Mensaje" class="form-control" ></textarea>
+    <textarea asp-for="Mensaje" class="form-control" required>
+        
+    </textarea>
+
+    <br>
 
     <div class="form-group">
         <button type="submit" class="btn btn-primary">Registrar</button> 

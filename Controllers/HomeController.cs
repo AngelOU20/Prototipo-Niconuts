@@ -41,18 +41,25 @@ namespace Prototipo_Niconuts.Controllers
             
             return View();
         }
-
+        
         [HttpPost]
         public IActionResult FormularioContacto(Contacto a){
             if(ModelState.IsValid){
                 _context.Add(a);
                 _context.SaveChanges();
+                return RedirectToAction("Index");
             }
-            return RedirectToAction("Index");
+            return View(a);
         }
 
         
 
+        public IActionResult FormularioReclamaciones(){
+            
+            return View();
+        }
+
+        
 
         
 
