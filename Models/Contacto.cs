@@ -19,6 +19,7 @@ namespace Prototipo_Niconuts.Models
         public string Apellido{get;set;}
 
         [Required]
+        [EmailAddress]
         [Column("email")]
         public string Email{get;set;}
 
