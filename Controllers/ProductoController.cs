@@ -1,8 +1,10 @@
 using System;
+using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Prototipo_Niconuts.Data;
@@ -15,12 +17,15 @@ namespace Prototipo_Niconuts.Controllers
 
         private readonly ILogger<ProductoController> _logger;
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
 
         public ProductoController(ILogger<ProductoController> logger,
-            ApplicationDbContext context)
+            ApplicationDbContext context ,  UserManager<IdentityUser> userManager)
         {
             _logger = logger;
             _context = context;
+            _userManager = userManager;
+
         }
         public IActionResult Producto()
         {
@@ -49,12 +54,25 @@ namespace Prototipo_Niconuts.Controllers
             return View(producto);
         }
 
-        [Authorize]
-        public IActionResult Carrito()
+        public async Task<IActionResult> Add(int? id)
         {
-            var Ordenes=_context.DataPrePedido.Where(x => x.Usuario != null).ToList();
-            return View(Ordenes);
+            var userID = _userManager.GetUserName(User);
+            if(userID == null){ 
+                return RedirectToAction("Producto");
+            }else{
+                var producto = await _context.DataProducto.FindAsync(id);
+                Proforma proforma = new Proforma();
+                proforma.Producto = producto;
+                proforma.Precio = producto.Precio;
+                proforma.Cantidad = 1;
+                proforma.UserID = userID;
+                _context.Add(proforma);
+                await _context.SaveChangesAsync();
+                return  RedirectToAction("Producto");
+            }
         }
+
+        
 
     }
 }
