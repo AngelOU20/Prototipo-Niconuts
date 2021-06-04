@@ -35,6 +35,17 @@ namespace Prototipo_Niconuts.Controllers
             return View(await items.ToListAsync());
         }
 
+        public IActionResult DeletePC(int id) 
+        {
+            var Producto= _context.DataProforma.Find(id);
+            _context.Remove(Producto);
+            _context.SaveChanges();
+            return RedirectToAction("Proforma");
+        }
+
+
+        
+
         
     }
 }
