@@ -1,3 +1,4 @@
+@model Reclamaciones
 @{
     ViewData["Title"] = "Formulario de Reclamaciones";
 }
@@ -23,29 +24,29 @@
         
             <div class="col-2"></div>
             <div class="col-4">
-                <label for="">Nombre completo</label>
-                <input type="text" required="required" class="form-control">
+                <label asp-for="Nombre"></label>
+                <input asp-for="Nombre" required="required" class="form-control">
             </div> 
             <div class="col-4">
-                <label for="">Email</label>
-                <input type="email" required="required" class="form-control"> 
+                <label asp-for="Apellido">Apellido</label>
+                <input asp-for="Apellido" required="required" class="form-control"> 
             </div>
             <div class="col-2"></div>
             <div class="col-2"></div>
             <div class="col-4">
-                    <label for="">Celular</label>
-                    <input type="text" required="required" class="form-control">
+                    <label asp-for="Telefono"></label>
+                    <input asp-for="Telefono" type="tel" required="required" class="form-control" >
             </div> 
             
             <div class="col-4">
-                <label for="">DNI</label>
-                <input type="text" required="required" class="form-control"> 
+                <label asp-for="Email">Email</label>
+                <input asp-for="Email" required="required" placeholder="name@example.com" class="form-control"> 
             </div> 
             <div class="col-2"></div>
             <div class="col-2"></div>
             <div class="col-8">
-                <label for="">Reclamacion</label>
-                <textarea cols="30" rows="10" required="required" class="form-control" style="max-height: 200px;"></textarea>
+                <label asp-for="Mensaje">Reclamacion</label>
+                <textarea asp-for="Mensaje" cols="30" rows="10" required="required" class="form-control" style="max-height: 200px; min-height:200px;"></textarea>
                 <small class="text-muted">Sea detallado y explicito con su reclamacion para un menor tiempo de respuesta.</small> 
             </div> 
             <br>
