@@ -1,0 +1,17 @@
+body{
+    background-color:#2E2E2E;
+}
+h2{
+    color: white;
+    text-align: center;
+    font-size: 50px;
+}
+form{
+    background-color:transparent ;
+    width: 10px;   
+	width:200px;
+	text-decoration:none;
+	display:inline-block;
+	font-size:1.25em;
+    height: 25px;
+}
