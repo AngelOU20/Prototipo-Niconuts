@@ -4,12 +4,7 @@ body{
 label{
     color: white;
 }
-form{
-    margin-top: 10px;
-    background-color: #848484;
-    padding: 25px ;
-    border-radius: 20px; height:550px; width: 300px;
-}
+
 a{
     font-size: 18px;
 
