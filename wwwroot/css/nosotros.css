@@ -4,6 +4,7 @@
 
 body{
     background-color: #2E2E2E;  /* fallback for old browsers */
+    color: aliceblue;
 
     /*background: -webkit-linear-gradient(to left, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
     /*background: linear-gradient(to left, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -12,11 +13,13 @@ body{
 }
 p{
     font-size: 20px;
+    
 }
 
 hr {
     border: none;
     height: 1px;
+    color: black;
     /* Set the hr color */
     color: #333; /* old IE */
     background-color: #333; /* Modern Browsers */
