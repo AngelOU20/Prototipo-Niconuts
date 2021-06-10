@@ -27,6 +27,14 @@ namespace Prototipo_Niconuts.Controllers
             ViewData["Message"] = "";
             return View(listcontactos);
         }
+
+        public IActionResult AdministrarReclamos()    
+        {
+            var listcontactos = _context.DataReclamos.OrderBy(x => x.id).ToList();
+            
+            return View(listcontactos);
+        }
+
         public IActionResult AdministrarProducto()    //https://localhost:5001/Administrador/Administrador
         {
             var listProducto = _context.DataProducto.OrderBy(x => x.id).ToList();
@@ -89,6 +97,14 @@ namespace Prototipo_Niconuts.Controllers
             _context.SaveChanges();
 
             return RedirectToAction("Administrador");
+        }
+
+        public IActionResult BorrarReclamo(int id){
+            var reclamo= _context.DataReclamos.Find(id);
+            _context.Remove(reclamo);
+            _context.SaveChanges();
+
+            return RedirectToAction("AdministradorReclamos");
         }
 
     }

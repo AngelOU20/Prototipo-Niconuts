@@ -58,17 +58,19 @@ namespace Prototipo_Niconuts.Controllers
         {
             var userID = _userManager.GetUserName(User);
             if(userID == null){ 
-                return RedirectToAction("Producto");
+                ViewData["Message"] = "Por favor debe loguearse antes de agregar un producto";
+                List<Producto> productos = new List<Producto>();
+                return  View("Producto",productos);
             }else{
                 var producto = await _context.DataProducto.FindAsync(id);
                 Proforma proforma = new Proforma();
                 proforma.Producto = producto;
-                proforma.Precio = producto.Precio;
                 proforma.Cantidad = 1;
+                proforma.Precio = proforma.Cantidad * producto.Precio;
                 proforma.UserID = userID;
                 _context.Add(proforma);
                 await _context.SaveChangesAsync();
-                return  RedirectToAction("Producto");
+                return  RedirectToAction(nameof(producto));
             }
         }
 

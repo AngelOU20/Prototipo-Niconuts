@@ -23,13 +23,13 @@
                 <div>
                     <div class="row">
                     <div class="col-md-6">
-                        <input type="number"  class="input-text qty text" step="1" min="1" max="" value="1" title="Cantidad" size="4" placeholder="" inputmode="numeric">
+                        <input  type="number"  class="input-text qty text" step="1" min="1" max="" value="1"  size="4" placeholder="" inputmode="numeric">
                     </div>
                     <br>
                     <div class="col-md-6">
                         <form asp-action="" method="POST">
-                            <input type="hidden" name="id" >
-                            <button asp-action="Carrito" class="btn btn-outline-success">Agregar al carrito</button>
+                            <input type="hidden" name="id" value="@Html.DisplayFor(model => model.id)">
+                            <button asp-action="Add" class="btn btn-outline-success">Agregar al carrito</button>
                         </form>
                     </div>
                     </div>

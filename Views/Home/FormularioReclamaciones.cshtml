@@ -1,69 +1,64 @@
-@model Reclamaciones
 @{
     ViewData["Title"] = "Formulario de Reclamaciones";
 }
+@model Reclamaciones
 
 
-<div>
-    <center>
-        <h1>
-            Formulario de Reclamaciones
-        </h1>
-    </center>
+<div class="text-center">
+        <h1>Formulario de Reclamaciones</h1>
 </div>
 <br>
 
-<form action="post" class="container"  >
-    
-    <div class="row">
-        <div class="col-1"></div>
-<div class="col-10">
-    <div class="f1">
-        <br>
-    <div class="row">
+<div class="container">
+    <form method="POST" asp-action="FormularioReclamaciones">
         
-            <div class="col-2"></div>
-            <div class="col-4">
-                <label asp-for="Nombre"></label>
-                <input asp-for="Nombre" required="required" class="form-control">
-            </div> 
-            <div class="col-4">
-                <label asp-for="Apellido">Apellido</label>
-                <input asp-for="Apellido" required="required" class="form-control"> 
-            </div>
-            <div class="col-2"></div>
-            <div class="col-2"></div>
-            <div class="col-4">
-                    <label asp-for="Telefono"></label>
-                    <input asp-for="Telefono" type="tel" required="required" class="form-control" >
-            </div> 
-            
-            <div class="col-4">
-                <label asp-for="Email">Email</label>
-                <input asp-for="Email" required="required" placeholder="name@example.com" class="form-control"> 
-            </div> 
-            <div class="col-2"></div>
-            <div class="col-2"></div>
-            <div class="col-8">
-                <label asp-for="Mensaje">Reclamacion</label>
-                <textarea asp-for="Mensaje" cols="30" rows="10" required="required" class="form-control" style="max-height: 200px; min-height:200px;"></textarea>
-                <small class="text-muted">Sea detallado y explicito con su reclamacion para un menor tiempo de respuesta.</small> 
-            </div> 
+        <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+        <div class="f1">
             <br>
-            <div class="col-5"></div>
-            <div class="col-md-4">
-                <button type="submit" class="btn btn-lg btn-success text-light pl-5 pr-5">
-                    Enviar
-                </button>
-            </div>
-            <br> 
-     </div>         
-    </div>
-    </div>
-    <div class="col-1"></div>
-    </div>
-</form>
-
+        <div class="row">
+            
+                <div class="col-2"></div>
+                <div class="col-4">
+                    <label asp-for="Nombre"></label>
+                    <input asp-for="Nombre" required class="form-control">
+                </div> 
+                <div class="col-4">
+                    <label asp-for="Apellido">Apellido</label>
+                    <input asp-for="Apellido" required class="form-control"> 
+                </div>
+                <div class="col-2"></div>
+                <div class="col-2"></div>
+                <div class="col-4">
+                        <label asp-for="Telefono"></label>
+                        <input asp-for="Telefono" type="tel" required class="form-control" >
+                </div> 
+                
+                <div class="col-4">
+                    <label asp-for="Email">Email</label>
+                    <input asp-for="Email" required placeholder="name@example.com" class="form-control"> 
+                </div> 
+                <div class="col-2"></div>
+                <div class="col-2"></div>
+                <div class="col-8">
+                    <label asp-for="Mensaje">Reclamacion</label>
+                    <textarea asp-for="Mensaje" cols="30" rows="10" required class="form-control" style="max-height: 200px; min-height:200px;"></textarea>
+                    <small class="text-muted">Sea detallado y explicito con su reclamacion para un menor tiempo de respuesta.</small> 
+                </div> 
+                <br>
+                <div class="col-5"></div>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-lg btn-success text-light pl-5 pr-5">Enviar</button>
+                </div>
+                <br> 
+        </div>         
+        </div>
+        </div>
+        <div class="col-1"></div>
+        </div>
+    </form>
+</div>
 
 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 <link rel="stylesheet" href="~/css/contacto.css" />

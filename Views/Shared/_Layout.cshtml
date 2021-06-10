@@ -13,6 +13,7 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <br>
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><strong>Niconuts</strong></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -26,18 +27,24 @@
                     <partial name="_LoginPartial" />
                 </div>
             </div>
+            <br>
         </nav>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
+
+    <br>
+    <br>
     <footer class="border-top footer text-muted" style="background-color: #3a3a3a;">
         <div class="container" style="text-align: center; color:white;">
-            &copy; 2021 - USMP - <a asp-area="" asp-controller="Home" asp-action="Index">Niconuts</a>
+            &copy; 2021 - USMP
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

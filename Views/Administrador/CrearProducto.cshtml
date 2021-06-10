@@ -3,47 +3,149 @@
 }
 
 @model Producto
-<h1>Agregar Producto</h1>
-
-<h4>Producto</h4>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h3>Agregar Producto</h3>
+        </div>
+        <div>
+            <divc class="col-md-4">
+                <a asp-action="AdministrarProducto" style="color:black;"><span class="oi oi-arrow-thick-left"></span></a>
+            </div>
+        </div>
+    </div>
+</div>
 <hr />
+<div class="container">
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="CrearProducto" method="POST">
+        <form asp-action="CrearProducto" method="POST" class="form-list">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Nombre" class="control-label"></label>
-                <input asp-for="Nombre" class="form-control" />
+            <div class="form-list__row">
+                <label asp-for="Nombre" ></label>
+                <input asp-for="Nombre" />
                 <span asp-validation-for="Nombre" class="text-danger"></span>
             </div>
             
-            <div class="form-group">
-                <label asp-for="Precio" class="control-label"></label>
-                <input asp-for="Precio" class="form-control" />
+            <div class="form-list__row">
+                <label asp-for="Precio" ></label>
+                <input asp-for="Precio" />
                 <span asp-validation-for="Precio" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
-                <label asp-for="Descripcion" class="control-label"></label>
-                <input asp-for="Descripcion" class="form-control" />
+            <div class="form-list__row">
+                <label asp-for="Descripcion" ></label>
+                <input asp-for="Descripcion" />
                 <span asp-validation-for="Descripcion" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
-                <label asp-for="Imagen" class="control-label"></label>
-                <input asp-for="Imagen" class="form-control" />
+            <div class="form-list__row">
+                <label asp-for="Imagen" ></label>
+                <input asp-for="Imagen" />
                 <span asp-validation-for="Imagen" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <button class="btn btn-primary">Agregar Producto</button>
+                <button class="button">Agregar Producto</button>
             </div>
         </form>
     </div>
 </div>
-
-<div>
-    <a asp-action="AdministrarProducto">Regresar</a>
 </div>
+
+
+<style>
+    input {
+        width: calc(100% - 10px);
+        min-height: 30px;
+        padding-left: 5px;
+        padding-right: 5px;
+        letter-spacing: .5px;
+        border: 0;
+        border-bottom: 2px solid #f0f0f0; }
+    input:valid {
+        border-color: #24cf5f; }
+    input:focus {
+        outline: none;
+        border-color: #fbcf34; }
+
+    .form-list {
+        padding-left: 0;
+        list-style: none; }
+    .form-list__row {
+        margin-bottom: 25px; }
+    .form-list__row label {
+        position: relative;
+        display: block;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 11px;
+        letter-spacing: .5px;
+        color: #939393; }
+    .form-list__row--inline {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: justify;
+        justify-content: space-between; }
+    .form-list__row--inline > :first-child {
+        -ms-flex: 2;
+        flex: 2;
+        padding-right: 20px; }
+    .form-list__row--inline > :nth-child(2n) {
+        -ms-flex: 1;
+        flex: 1; }
+
+    .button {
+        color: #ffffff;
+        background-color: #24cf5f;
+        padding: 12px 25px;
+        font-size: 12px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        border: 0;
+        border-radius: 2px;
+        outline: 0;
+        box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
+        transition: all .2s; }
+    .button:hover, .button:active, .button:focus {
+        -ms-transform: scale(1.1);
+        transform: scale(1.1); }
+
+    .button--transparent {
+        background: transparent;
+        border: 0;
+        outline: 0; }
+
+    .button--close {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+            align-items: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+        width: 30px;
+        height: 30px;
+        color: #ffffff;
+        border-radius: 50%;
+        transition: all .25s;
+        z-index: 10; }
+    .button--close svg {
+        width: 20px;
+        height: 20px; }
+    .button--close svg * {
+        fill: currentColor; }
+    .button--close:hover, .button--close:active, .button--close:focus {
+        color: #fbcf34;
+        background-color: #ffffff;
+        box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.1); }
+    .button--info {
+        position: absolute;
+        top: 0;
+        right: 0; }
+
+</style>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

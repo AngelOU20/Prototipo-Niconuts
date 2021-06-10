@@ -43,7 +43,7 @@
                     @Html.DisplayFor(modelItem => item.Precio)
                 </td>
                 <td class="text-center">
-                    <a asp-action="Edit" asp-route-id="@item.Id" style="color: black;" ><span class="oi oi-pencil"></span></a> |
+                    
                     <a asp-action="DeletePC" asp-route-id="@item.Id" style="color: #D52F0B;" ><span class="oi oi-x"></span></a>
                 </td>
             </tr>
@@ -54,6 +54,7 @@
     </table>
 
     <div class="text-right">
+        <p>@ViewData["total"]</p>
         <button class="btn btn-primary"  >Comprar</button>
     </div>
 

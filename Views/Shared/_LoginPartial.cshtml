@@ -5,6 +5,16 @@
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {
+    @if(UserManager.GetUserName(User).Equals("Administrador@gmail.com")){
+        <li class="nav-item">
+            <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hola @User.Identity.Name !</a>
+        </li>   
+        <li class="nav-item">
+            <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button  type="submit" class="nav-link btn btn-link text-dark" onclick="return confirm('¿Seguro que quieres cerrar sesion?')">Salir</button>
+            </form>
+        </li> 
+    }else{
     <li class="nav-item">
         <a class="nav-link text-dark" asp-controller="Proforma" asp-action="Proforma"><span class="oi oi-cart"></span></a>
     </li>
@@ -15,7 +25,8 @@
         <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
             <button  type="submit" class="nav-link btn btn-link text-dark" onclick="return confirm('¿Seguro que quieres cerrar sesion?')">Salir</button>
         </form>
-    </li>   
+    </li>
+    }   
 }
 else
 {

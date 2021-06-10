@@ -1,11 +1,10 @@
-
 @{
-    ViewData["Title"] = "Consultas";
+    ViewData["Title"] = "Reclamos";
 }
-@model IEnumerable<Prototipo_Niconuts.Models.Contacto>
+@model IEnumerable<Prototipo_Niconuts.Models.Reclamaciones>
 
 <div>
-    <h2>Consultas</h2>
+    <h2>Reclamaciones</h2>
   
     <hr>
     <br>
@@ -52,12 +51,10 @@
                     @Html.DisplayFor(modelItem => item.Mensaje)
                 </td>
                 <td class="center">
-                    <a asp-action="BorrarContacto" asp-route-id="@item.id" class="text-danger ml-1" onclick="return confirm('¿Seguro que quieres eliminar el producto?')"><i class="oi oi-trash"></i></a>
+                    <a asp-action="BorrarReclamo" asp-route-id="@item.id" class="text-danger ml-1" onclick="return confirm('¿Seguro que quieres eliminar el producto?')"><i class="oi oi-trash"></i></a>
                 </td>
             </tr>
         }
     </tbody>
     </table>
 </div>
-
-
