@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -13,12 +14,14 @@ namespace Prototipo_Niconuts.Controllers
     {
         private readonly ILogger<AdministradorController> _logger;
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
 
         public AdministradorController(ILogger<AdministradorController> logger,
-            ApplicationDbContext context)
+            ApplicationDbContext context,UserManager<IdentityUser> userManager)
         {
             _logger = logger;
             _context = context;
+            _userManager = userManager;
         }
 
         public IActionResult Administrador()    //https://localhost:5001/Administrador/Administrador
@@ -26,6 +29,12 @@ namespace Prototipo_Niconuts.Controllers
             var listcontactos = _context.DataContacto.OrderBy(x => x.id).ToList();
             ViewData["Message"] = "";
             return View(listcontactos);
+        }
+
+        public ActionResult AdministrarUsuarios()    //https://localhost:5001/Administrador/Administrador
+        {
+            var listusuario = _userManager.GetUserName(User);
+            return View(listusuario);
         }
 
         public IActionResult AdministrarReclamos()    

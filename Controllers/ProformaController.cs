@@ -43,6 +43,10 @@ namespace Prototipo_Niconuts.Controllers
             return RedirectToAction("Proforma");
         }
 
+        public IActionResult MetodoDePago(){
+            return View();
+        }
+
 
         
 
