@@ -63,12 +63,17 @@ namespace Prototipo_Niconuts.Controllers
                 return  View("Producto",productos);
             }else{
                 var producto = await _context.DataProducto.FindAsync(id);
+                
+
                 Proforma proforma = new Proforma();
                 proforma.Producto = producto;
                 proforma.Cantidad = 1;
                 proforma.Precio = proforma.Cantidad * producto.Precio;
+                proforma.SubTotal+=proforma.Precio;
                 proforma.UserID = userID;
+
                 _context.Add(proforma);
+                
                 await _context.SaveChangesAsync();
                 return  RedirectToAction(nameof(producto));
             }

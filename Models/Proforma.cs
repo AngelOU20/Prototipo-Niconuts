@@ -20,5 +20,7 @@ namespace Prototipo_Niconuts.Models
         public int Cantidad{get; set;}
 
         public Decimal Precio { get; set; }
+
+        public Decimal SubTotal { get; set; }
     }
 }

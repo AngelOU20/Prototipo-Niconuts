@@ -91,7 +91,7 @@ namespace Prototipo_Niconuts.Controllers
             return View(producto);
         }
    
-        public IActionResult Delete(int id) 
+        public IActionResult EliminarProducto(int id) 
         {
             var Producto= _context.DataProducto.Find(id);
             _context.Remove(Producto);

@@ -1,4 +1,4 @@
-@model IEnumerable<Prototipo_Niconuts.Models.Proforma>
+@model IEnumerable<Proforma>
 
 @{
     ViewData["Title"] = "Index";
@@ -47,14 +47,18 @@
                     <a asp-action="DeletePC" asp-route-id="@item.Id" style="color: #D52F0B;" ><span class="oi oi-x"></span></a>
                 </td>
             </tr>
+            
     }
 
             
         </tbody>
+        <tfoot>
+            <p></p>
+        </tfoot>
     </table>
-
+            
     <div class="text-right">
-        <p>@ViewData["total"]</p>
+        
         <a href="MetodoDePago"><button class="btn btn-primary"  >Comprar</button></a>
     </div>
 

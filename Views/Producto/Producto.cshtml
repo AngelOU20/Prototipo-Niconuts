@@ -45,7 +45,9 @@
 		<div class="col-lg-3 catalogue-item filter-app">
             <div class="card h-100">
                     <a asp-action="DescripcionProducto" asp-route-id="@item.id"><img src="@Html.DisplayFor(modelItem => item.Imagen)" class="d-block w-100"></a>
+                    
                     <div class="card-body">
+                        <hr>
                         <h5 class="card-title">
                             @Html.DisplayFor(modelItem => item.Nombre)
                         </h5>
