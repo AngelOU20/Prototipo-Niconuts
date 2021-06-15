@@ -43,13 +43,56 @@ namespace Prototipo_Niconuts.Controllers
             return RedirectToAction("Proforma");
         }
 
+        public IActionResult EditarProforma(int id){
+            var proforma = _context.DataProforma.Find(id);
+            return View(proforma);
+        }
+
+
+        [HttpPost]
+        public IActionResult EditarProforma(Proforma p){
+            if(ModelState.IsValid){
+                var proforma = _context.DataProforma.Find(p.Id);
+                proforma.Cantidad = p.Cantidad;
+                proforma.SubTotal = p.Cantidad * proforma.Precio;
+                _context.SaveChanges();
+                return RedirectToAction("Proforma");
+            }
+            return View(p);
+        }
+
+        public async Task<IActionResult> ResumenCompra(){
+            var userID = _userManager.GetUserName(User);
+            var items = from o in _context.DataProforma select o;
+            items = items.
+                Include(p => p.Producto).
+                Where(s => s.UserID.Equals(userID));
+            
+            return View(await items.ToListAsync());
+        }
+
+        public IActionResult Comprar(){
+            return RedirectToAction("Index","Home");
+        }
+        
         public IActionResult MetodoDePago(){
             return View();
         }
 
+        public IActionResult PagoContraEntrega(){
+            return View();
+        }
+        public IActionResult PagoTarjeta(){
+            return View();
+        }
 
-        
+        public IActionResult PagoTransferencia(){
+            return View();
+        }
 
+        public IActionResult PagoEnTienda(){
+            return View();
+        }
         
     }
 }

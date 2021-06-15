@@ -62,6 +62,7 @@ namespace Prototipo_Niconuts.Controllers
         [HttpPost]
         public IActionResult FormularioReclamaciones(Reclamaciones c){
             if(ModelState.IsValid){
+                c.Estado="No Atendido";
                 _context.Add(c);
                 _context.SaveChanges();
                 return RedirectToAction("Index");
