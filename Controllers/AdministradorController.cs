@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Prototipo_Niconuts.Data;
@@ -26,23 +27,19 @@ namespace Prototipo_Niconuts.Controllers
 
         public IActionResult Administrador()    //https://localhost:5001/Administrador/Administrador
         {
-            var listcontactos = _context.DataContacto.OrderBy(x => x.id).ToList();
+            var listcontactos = _context.DataContacto.OrderBy(x => x.Id).ToList();
             ViewData["Message"] = "";
             return View(listcontactos);
         }
 
-        public ActionResult AdministrarUsuarios()    //https://localhost:5001/Administrador/Administrador
-        {
-            var listusuario = _userManager.GetUserName(User);
-            return View(listusuario);
-        }
+        
 
         public IActionResult AdministrarReclamos()    
         {
-            var listcontactos = _context.DataReclamos.OrderBy(x => x.id).ToList();
-            
+            var listcontactos= _context.DataReclamos.OrderBy(r => r.Id).ToList();
             return View(listcontactos);
         }
+
 
         public IActionResult AdministrarProducto()    //https://localhost:5001/Administrador/Administrador
         {
