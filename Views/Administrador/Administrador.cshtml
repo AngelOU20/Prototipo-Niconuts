@@ -14,7 +14,7 @@
     <thead class="thead-dark">
         <tr>
                 <th scope="col">
-                    @Html.DisplayNameFor(model => model.id)
+                    @Html.DisplayNameFor(model => model.Id)
                 </th>
                 <th scope="col">
                     @Html.DisplayNameFor(model => model.Nombre)
@@ -38,7 +38,7 @@
         {
             <tr>
                 <th scope="row">
-                    @Html.DisplayFor(modelItem => item.id)
+                    @Html.DisplayFor(modelItem => item.Id)
                 </th>
                 <td>
                     @Html.DisplayFor(modelItem => item.Nombre)
@@ -53,7 +53,7 @@
                     @Html.DisplayFor(modelItem => item.Mensaje)
                 </td>
                 <td class="center">
-                    <a asp-action="BorrarContacto" asp-route-id="@item.id" class="text-danger ml-1" onclick="return confirm('¿Seguro que quieres eliminar el producto?')"><i class="oi oi-trash"></i></a>
+                    <a asp-action="BorrarContacto" asp-route-id="@item.Id" class="text-danger ml-1" onclick="return confirm('¿Seguro que quieres eliminar el producto?')"><i class="oi oi-trash"></i></a>
                 </td>
             </tr>
         }
