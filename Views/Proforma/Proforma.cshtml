@@ -1,17 +1,17 @@
-@model IEnumerable<Proforma>
+@model IEnumerable<Prototipo_Niconuts.Models.Proforma>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Carrito";
 }
 
 
 <div class="container">
-    <h1>Carrito</h1>
+    <h1>Carrito de Compras</h1>
     <table class="table">
         <thead>
             <tr>
                 <th class="text-center">
-                    Imagen
+                    Imagen del Producto
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Producto.Nombre)
@@ -20,7 +20,7 @@
                     @Html.DisplayNameFor(model => model.Cantidad)
                 </th>
                 <th class="text-center">
-                    @Html.DisplayNameFor(model => model.Precio)
+                    Precio
                 </th>
                 <th></th>
             </tr>
@@ -40,28 +40,27 @@
                     @Html.DisplayFor(modelItem => item.Cantidad)
                 </td>
                 <td class="text-center">
-                    @Html.DisplayFor(modelItem => item.Precio)
+                    S/ @Html.DisplayFor(modelItem => item.SubTotal)
                 </td>
                 <td class="text-center">
-                    
+                    <a asp-action="EditarProforma" asp-route-id="@item.Id" style="color: #000;" ><span class="oi oi-pencil"></span></a> |
                     <a asp-action="DeletePC" asp-route-id="@item.Id" style="color: #D52F0B;" ><span class="oi oi-x"></span></a>
                 </td>
             </tr>
             
     }
-
-            
         </tbody>
         <tfoot>
             <p></p>
         </tfoot>
     </table>
-            
+         
     <div class="text-right">
-        
-        <a href="MetodoDePago"><button class="btn btn-primary"  >Comprar</button></a>
+        <a href="ResumenCompra"> <button class="btn btn-outline-success"> Resumen de Compra</button></a>
+        <a href="MetodoDePago"><button class="btn btn-outline-success"  >Comprar</button></a>
     </div>
-
+<br>
 </div>
+<br>
 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 <link rel="stylesheet" href="~/css/proform.css" />

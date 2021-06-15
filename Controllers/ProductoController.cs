@@ -68,10 +68,10 @@ namespace Prototipo_Niconuts.Controllers
                 Proforma proforma = new Proforma();
                 proforma.Producto = producto;
                 proforma.Cantidad = 1;
-                proforma.Precio = proforma.Cantidad * producto.Precio;
-                proforma.SubTotal+=proforma.Precio;
+                proforma.Precio = producto.Precio;
+                proforma.SubTotal = proforma.Cantidad * producto.Precio;
                 proforma.UserID = userID;
-
+                
                 _context.Add(proforma);
                 
                 await _context.SaveChangesAsync();
