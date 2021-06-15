@@ -8,7 +8,7 @@ namespace Prototipo_Niconuts.Models
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("id")]
-        public int id{get;set;}
+        public int Id{get;set;}
 
         [Required]
         [Column("nombre")]
@@ -30,6 +30,10 @@ namespace Prototipo_Niconuts.Models
         [Required]
         [Column("mensaje")]
         public string Mensaje{get;set;}
+
+        public string Estado {get;set;}
+
+        
 
     }
 }
