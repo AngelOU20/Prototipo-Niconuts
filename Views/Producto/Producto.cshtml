@@ -19,19 +19,15 @@
                 <form class="d-flex" method="POST">
                     <div class="dropdown">
 	                <form asp-controller="Producto" asp-action="Index">
-	                <select class="custom-select btn btn-outline-light" type="button" name="Ordenar"
-	                    onchange="this.form.submit()">
-	                    <option><i class="fas fa-leaf"></i>Ordenar por:</option>
-	                    <option asp-action="MayorPrecio">Ordenar por precio: alto a bajo</option>
-                        <option name="MenorPrecio">Ordenar por precio: bajo a alto</option>
-	                </select>
-	            </form>
-            </div>
+                        
+	                </form>
+                    </div>
                 </form>
-                 <form class="d-flex" method="POST">
+                <form class="d-flex" method="POST">
                     <input class="form-control me-2" type="text" name="filtro" placeholder="Buscar" required>
                     <button class="btn btn-outline-info" >Buscar</button>
                 </form>
+                
             </div>
         </nav> 
     </div>
