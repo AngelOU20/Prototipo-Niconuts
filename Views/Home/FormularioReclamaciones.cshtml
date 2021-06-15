@@ -3,62 +3,147 @@
 }
 @model Reclamaciones
 
-
-<div class="text-center">
-        <h1>Formulario de Reclamaciones</h1>
-</div>
-<br>
-
 <div class="container">
-    <form method="POST" asp-action="FormularioReclamaciones">
-        
-        <div class="row">
-        <div class="col-1"></div>
-        <div class="col-10">
-        <div class="f1">
-            <br>
-        <div class="row">
+    <div class="row">
+            <div class="col-md-10"><h2>Formulario de Reclamación</h2></div>
+            <div class="col-md-2">
+                
+                    <a asp-controller="Home" asp-action="Contactenos" >
+                        <button type="button" class="button--transparent button--close">
+                        <svg class="nc-icon glyph" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32">
+                            <g><path fill="#ffffff" d="M1.293,15.293L11,5.586L12.414,7l-8,8H31v2H4.414l8,8L11,26.414l-9.707-9.707 C0.902,16.316,0.902,15.684,1.293,15.293z"></path> </g></svg>
+                        </button>
+                    </a>
+                
+                
+            </div>
+        </div>
+    <form method="POST" asp-action="FormularioReclamaciones" class="contacto">
             
-                <div class="col-2"></div>
-                <div class="col-4">
+                <div class="">
                     <label asp-for="Nombre"></label>
                     <input asp-for="Nombre" required class="form-control">
                 </div> 
-                <div class="col-4">
+                <div class="">
                     <label asp-for="Apellido">Apellido</label>
                     <input asp-for="Apellido" required class="form-control"> 
                 </div>
-                <div class="col-2"></div>
-                <div class="col-2"></div>
-                <div class="col-4">
+                <div class="">
                         <label asp-for="Telefono"></label>
                         <input asp-for="Telefono" type="tel" required class="form-control" >
                 </div> 
                 
-                <div class="col-4">
+                <div class="">
                     <label asp-for="Email">Email</label>
                     <input asp-for="Email" required placeholder="name@example.com" class="form-control"> 
                 </div> 
-                <div class="col-2"></div>
-                <div class="col-2"></div>
-                <div class="col-8">
+                <div class="">
                     <label asp-for="Mensaje">Reclamacion</label>
                     <textarea asp-for="Mensaje" cols="30" rows="10" required class="form-control" style="max-height: 200px; min-height:200px;"></textarea>
                     <small class="text-muted">Sea detallado y explicito con su reclamacion para un menor tiempo de respuesta.</small> 
                 </div> 
                 <br>
-                <div class="col-5"></div>
-                <div class="col-md-4">
-                    <button type="submit" class="btn btn-lg btn-success text-light pl-5 pr-5">Enviar</button>
+                
+                <div class="">
+                    <button type="submit" class="btn btn-lg btn-success text-light pl-5 pr-5">Enviar Reclamo</button>
                 </div>
                 <br> 
-        </div>         
-        </div>
-        </div>
-        <div class="col-1"></div>
-        </div>
+        
     </form>
 </div>
-
+<br>
 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 <link rel="stylesheet" href="~/css/contacto.css" />
+<style>
+    .contacto{
+        border: 1px solid #CED5D7;
+        border-radius: 6px;
+        padding: 45px 45px 20px;
+        margin-top: 50px;
+        background-color: white;
+        box-shadow: 0px 5px 10px #B5C1C5, 0 0 0 10px #EEF5F7 inset;
+    }
+    .contacto label{
+        display: block; /* esto es para que el label se sobreponga a la caja de texto */
+        font-weight: bold;
+    }
+    .contacto div{
+        margin-bottom: 15px; /* esto los separara un poco */
+    }
+    .contacto input[type='text'], .contacto textarea{
+        padding: 7px 6px;
+        border: 1px solid #CED5D7;
+        resize: none; /* esta propiedad es para que el textarea no sea redimensionable */
+        box-shadow:0 0 0 3px #EEF5F7;
+        margin: 5px 0;
+    }
+    .contacto input[type='text']:focus, .contacto textarea:focus{
+        outline: none; /* reset especifico para Chrome/Safari */
+        box-shadow:0 0 0 3px #dde9ec;
+    }
+    .button--transparent {
+  background: transparent;
+  border: 0;
+  outline: 0; }
+
+.button--close {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  width: 30px;
+  height: 30px;
+  color: #000;
+  border-radius: 50%;
+  transition: all .25s;
+  z-index: 10; }
+  .button--close svg {
+    width: 20px;
+    height: 20px; }
+    .button--close svg * {
+      fill: currentColor; }
+  .button--close:hover, .button--close:active, .button--close:focus {
+    color: #000;
+    background-color: #ffffff;
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.1); }
+
+.button--info {
+  position: absolute;
+  top: 0;
+  right: 0; }
+  .modal__featured {
+    position: relative;
+    -ms-flex: 1;
+        flex: 1;
+    min-width: 230px;
+    padding: 20px;
+    overflow: hidden;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px; }
+  .modal__circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 200%;
+    width: 200%;
+    background-color: #F6F3F8;
+    border-radius: 50%;
+    -ms-transform: translateX(-50%) translateY(-25%);
+        transform: translateX(-50%) translateY(-25%); }
+        .modal__product {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    max-width: 85%;
+    -ms-transform: translateX(calc(-50% - 10px));
+        transform: translateX(calc(-50% - 10px)); }
+  .modal__content {
+    -ms-flex: 3;
+        flex: 3;
+    padding: 40px 30px; }
+</style>
