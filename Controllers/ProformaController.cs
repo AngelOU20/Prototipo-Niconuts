@@ -71,8 +71,16 @@ namespace Prototipo_Niconuts.Controllers
             return View(await items.ToListAsync());
         }
 
-        public IActionResult Comprar(){
+        public IActionResult Gracias(){
             return RedirectToAction("Index","Home");
+        }
+
+        public IActionResult Comprar(){
+            return RedirectToAction("GraciasPorSuCompra","Proforma");
+        }
+
+        public IActionResult GraciasPorSuCompra(){
+            return View();
         }
         
         public IActionResult MetodoDePago(){
