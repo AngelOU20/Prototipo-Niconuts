@@ -1,0 +1,95 @@
+﻿@page
+@model LoginWith2faModel
+@{
+    ViewData["Title"] = "Autenticación en dos factores";
+}
+
+<br>
+<br>
+<br>
+<div class="container">
+    <h1>@ViewData["Title"]</h1>
+    <hr />
+    <p>Su inicio de sesión está protegido con una aplicación de autenticación. Ingrese su código de autenticador a continuación.</p>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <form method="post" asp-route-returnUrl="@Model.ReturnUrl">
+                <input asp-for="RememberMe" type="hidden" />
+                <!--<div asp-validation-summary="All" class="text-danger"></div>-->
+                <div class="form-group">
+                    <label asp-for="Input.TwoFactorCode">Código de autenticación</label>
+                    <input asp-for="Input.TwoFactorCode" class="form-control" autocomplete="off" />
+                    <span asp-validation-for="Input.TwoFactorCode" class="text-danger"></span>
+                </div>
+                <!--
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label asp-for="Input.RememberMachine">
+                            <input asp-for="Input.RememberMachine" />
+                            @Html.DisplayNameFor(m => m.Input.RememberMachine)
+                        </label>
+                    </div>
+                </div>-->
+                <div class="form-group">
+                    <button type="submit" class="btn__inicio">Iniciar Sesión</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+    <p>
+        ¿No tienes acceso a tu dispositivo de autenticación? 
+        <a id="recovery-code-login" asp-page="./LoginWithRecoveryCode" asp-route-returnUrl="@Model.ReturnUrl">Puede iniciar sesión con un código de recuperación</a>.
+    </p>
+
+</div>
+
+<br>
+<br>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+<style>
+.container{
+    padding: 10px 0;
+}
+
+h1{
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 25px;
+    letter-spacing: 1.1px;
+}
+
+h4{
+    text-align: center;
+}
+
+p{
+    text-align: center;
+} 
+
+.btn__inicio{
+    display: inline-block;
+    width: 100%;
+    height: 43px;
+    background-color: #151111;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.8rem;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    transition: 0.3s;
+}
+
+.btn__inicio:hover {
+    background-color: #007175;
+}
+
+.btn__inicio:focus{
+    outline-style: none;
+}
+</style>

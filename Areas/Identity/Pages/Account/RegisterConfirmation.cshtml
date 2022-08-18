@@ -1,0 +1,55 @@
+@page
+@model RegisterConfirmationModel
+@{
+    ViewData["Title"] = "Confirmación del registro";
+}
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="container">
+    <h1>@ViewData["Title"]</h1>
+
+    @{
+        if (@Model.DisplayConfirmAccountLink)
+        {
+    <p>
+        <a id="confirm-link" href="@Model.EmailConfirmationUrl">Haga clic aquí para confirmar su cuenta</a>
+    </p>
+        }
+        else
+        {
+    <p>
+            Por favor, compruebe su correo electrónico para confirmar su cuenta.
+    </p>
+        }
+    }
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<style>
+    h1{
+        font-weight: bold;
+        text-align: center;
+        padding-bottom: 25px;
+        letter-spacing: 1.1px;
+    }
+    p{
+        text-align: center;
+    }
+    .container{
+        width: 80%;
+        max-width: 1250px;
+        margin: auto;
+        position: relative;
+        overflow: hidden; 
+    }
+</style>
+

@@ -4,63 +4,97 @@
     ViewData["Title"] = "Carrito";
 }
 
-
-<div class="container">
-    <h1>Carrito de Compras</h1>
-    <table class="table">
-        <thead>
-            <tr>
-                <th class="text-center">
-                    Imagen del Producto
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Producto.Nombre)
-                </th>
-                <th class="text-center">
-                    @Html.DisplayNameFor(model => model.Cantidad)
-                </th>
-                <th class="text-center">
-                    Precio
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-    @foreach (var item in Model) {
-            <tr>
-                <td>
-                    <div class="text-center">
-                        <img src="@Html.DisplayFor(modelItem => item.Producto.Imagen)" width="65px" height="65px" alt="">
-                    </div>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Producto.Nombre)
-                </td>
-                <td class="text-center">
-                    @Html.DisplayFor(modelItem => item.Cantidad)
-                </td>
-                <td class="text-center">
-                    S/ @Html.DisplayFor(modelItem => item.SubTotal)
-                </td>
-                <td class="text-center">
-                    <a asp-action="EditarProforma" asp-route-id="@item.Id" style="color: #000;" ><span class="oi oi-pencil"></span></a> |
-                    <a asp-action="DeletePC" asp-route-id="@item.Id" style="color: #D52F0B;" ><span class="oi oi-x"></span></a>
-                </td>
-            </tr>
-            
-    }
-        </tbody>
-        <tfoot>
-            <p></p>
-        </tfoot>
-    </table>
-         
-    <div class="text-right">
-        <a href="ResumenCompra"> <button class="btn btn-outline-success"> Resumen de Compra</button></a>
-        <a href="MetodoDePago"><button class="btn btn-outline-success"  >Comprar</button></a>
+@if (Model.Count() == 0){
+    <div class="container text-center">
+        <div class="carrito__vacio">
+            <img src="~/img/cart-removebg-preview.png" alt="" class="cart__img">
+            <div class="cart__content">
+                <h2 class="cart__title">Tu carrito está vacio</h2>
+                <p class="cart__txt"> Antes de proceder con el pago, debe agregar algunos productos a su carrito de compras.
+                    <br/>Encontrará muchos productos interesantes en nuestra página "Tienda". </p>
+                <a asp-controller="Catalogo" asp-action="Catalogo"><button class="btn__vacio">Volver a la tienda</button></a>
+            </div>
+        </div>
     </div>
-<br>
-</div>
+}else{
+    <div class="container">
+        <h1>Carrito de Compras</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="text-center">
+                        Imagen del Producto
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Producto.Nombre)
+                    </th>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.Cantidad)
+                    </th>
+                    <th class="text-center">
+                        Precio
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+        @foreach (var item in Model) {
+                <tr>
+                    <td>
+                        <div class="text-center">
+                            <img src="@Html.DisplayFor(modelItem => item.Producto.Imagen)" width="65px" height="65px" alt="">
+                        </div>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Producto.Nombre)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.Cantidad)
+                    </td>
+                    <td class="text-center">
+                        S/ @Html.DisplayFor(modelItem => item.SubTotal)
+                    </td>
+                    <td class="text-center">
+                        <a asp-action="EditarProforma" asp-route-id="@item.Id" style="color: #000;" ><span class="oi oi-pencil"></span></a> |
+                        <a asp-action="DeletePC" asp-route-id="@item.Id" style="color: #D52F0B;" ><span class="oi oi-x"></span></a>
+                    </td>
+                </tr>
+                
+        }
+            </tbody>
+            <tfoot>
+                <p></p>
+            </tfoot>
+        </table>
+            
+        <div class="text-right">
+            <a href="ResumenCompra"> <button class="btn btn-outline-success"> Resumen de Compra</button></a>
+            <a href="MetodoDePago"><button class="btn btn-outline-success"  >Comprar</button></a>
+        </div>
+    <br>
+    </div>
+
+}
 <br>
 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 <link rel="stylesheet" href="~/css/proform.css" />
+
+<style>
+.btn__vacio{
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 15px;
+    background-color: #294d2b;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.8rem;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    transition: 0.3s;
+}
+
+.btn__vacio:focus{
+    outline-style: none;
+}
+</style>>
